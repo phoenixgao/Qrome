@@ -824,7 +824,7 @@ function getSelfVersion(callback){
 }
 
 function chkVersion(){
-	getRequest('https://raw.github.com/sneezry/Dualx/master/manifest.json', function(manifest){
+	getRequest('https://raw.github.com/phoenixgao/Qrome/master/manifest.json', function(manifest){
 		try{
 			manifest = JSON.parse(manifest);
 			getSelfVersion(function(selfVersion){
@@ -832,7 +832,7 @@ function chkVersion(){
 					versionMention();
 				}
 				else if(manifest.version.substr('.')[1] > selfVersion.substr('.')[1]){
-					getRequest('https://raw.github.com/sneezry/Dualx/master/VERSION_MENTION', function(mention){
+					getRequest('https://raw.github.com/phoenixgao/Qrome/master/VERSION_MENTION', function(mention){
 						if(mention == 'YES'){
 							versionMention();
 						}
@@ -847,7 +847,7 @@ function chkVersion(){
 function versionMention(){
 	outOfDate = true;
 	chrome.browserAction.setTitle({
-		title: 'Dualx - 有新版本'
+		title: 'Qrome - 有新版本'
 	});
 	if(popupCmd == 'showmain'){
 		chrome.browserAction.setIcon({
