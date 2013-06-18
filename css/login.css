@@ -18,6 +18,9 @@ body {
     background: #F5F5F5;
 }
 
+body.beforedawn {
+    background: url(../images/login/beforedawn.jpg) 0 0 no-repeat;
+}
 body.dawn {
     background: url(../images/login/dawn.jpg) 0 0 no-repeat;
 }

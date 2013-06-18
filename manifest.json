@@ -3,7 +3,7 @@
 	"version": "0.1.0",
 	"manifest_version": 2,
 	"description": "Chrome OS QQ客户端",
-	"minimum_chrome_version": "25.0.1364.97",
+	"minimum_chrome_version": "23.0.1364.97",
 	"browser_action": {
 		"default_icon": {
 			"19": "images/logo.png",
