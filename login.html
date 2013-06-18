@@ -5,46 +5,57 @@
     <link href='images/logo.png' rel='shortcut icon' />
     <title>Qrome</title>
     <link href="css/login.css" rel="stylesheet" type="text/css" />
+    <link href="css/autocompleteforaccount.css" rel="stylesheet" type="text/css" />
     <script src="js/jquery/jquery-2.0.2.min.js"></script>
 </head>
 <body>
-	<div id="loginBox">
-		<div id="beforeLogin">
-			<div class="inputOuter">
-				<input class="inputbox" id="account" autocomplete="off" type="text" placeholder="账号" />
-				<div id="stateChg">
-					<div id="state" state="online" class="state"></div>
-					<div id="stateList">
-						<div class="stateList" state="online"></div>
-						<div class="stateList" state="callme"></div>
-						<div class="stateList" state="hidden"></div>
-						<div class="stateList" state="busy"></div>
-						<div class="stateList" state="away"></div>
-						<div class="stateList" state="silent"></div>
-					</div>
-				</div>
-				<span id="regacc" class="loginRight">注册账号</span>
-			</div>
-			<div class="inputOuter">
-				<input class="inputbox" id="password" type="password" placeholder="密码" />
-				<span id="fgtpwd" class="loginRight">找回密码</span>
-			</div>
-			<div class="inputOuter">
-				<input type="checkbox" id="rememberPwd" />
-				<label for="rememberPwd" class="loginBottom" style="margin: 0 20px 0 5px">记住密码</label>
-				<input type="checkbox" id="autoLogin" />
-				<label for="autoLogin" class="loginBottom" style="margin-left: 5px">自动登录</label>
-			</div>
-		</div>
-	   <div id="afterLogin">正在登录……</div>
+	<div class='login-header'>
+	    <div id="login-logo"></div>
 	</div>
-	<div id="footer">
+	<div class='login-body'>
+		<div id="beforeLogin">
+		    <div class='login-body-left'>
+		        <div id="headpic">
+		            <div id="stateChg">
+                        <div id="state" state="online" class="state"></div>
+                        <ul id="stateList">
+                            <li state="online"><span>我在线上</span></li>
+                            <li state="callme"><span>Q我吧</span></li>
+                            <li state="busy"><span>忙碌</span></li>
+                            <li state="away"><span>离开</span></li>
+                            <li state="silent"><span>请勿打扰</span></li>
+                            <li state="hidden"><span>隐身</span></li>
+                        </ul>
+                    </div>
+		        </div>
+		    </div>
+		    <div class='login-body-right'>
+		        <div class="inputOuter">
+                    <input class="inputbox" id="account" autocomplete="off" type="text" placeholder="QQ号码/手机/邮箱" />
+                    <span id="regacc" class="loginRight">注册账号</span>
+                </div>
+                <div class="inputOuter">
+                    <input class="inputbox" id="password" type="password" placeholder="密码" />
+                    <span id="fgtpwd" class="loginRight">找回密码</span>
+                </div>
+                <div class='checkboxOuter'>
+                    <input type="checkbox" id="rememberPwd" />
+                    <label for="rememberPwd" class="loginBottom" style="margin: 0 16px 0 3px">记住密码</label>
+                    <input type="checkbox" id="autoLogin" />
+                    <label for="autoLogin" class="loginBottom" style="margin-left: 3px">自动登录</label>
+                </div>
+		    </div>
+		</div>
+	   <div id="afterLogin">正在登录<span id="currentAccount"></span>……</div>
+	</div>
+	<div class='login-footer'>
 		<div id="loginButtonOuter">
 			<div id="loginButtonBorder">
-				<div id="loginButtonInner">登&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;录</div>
+				<div id="loginButtonInner">登&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;录</div>
 			</div>
 		</div>
 	</div>
+	<script src="js/jquery.autocomplete/jquery.autocomplete.js"></script>
 	<script src="js/login.js"></script>
 </body>
 </html>

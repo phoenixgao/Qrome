@@ -1,6 +1,16 @@
 $(function(){
     showBackground();
     resizeWindow();
+    autocompleteForAccount();
+    
+    // 选择登录状态
+    $('#stateList li').each(function(){
+        $(this).click(function(){
+            $('#state').attr('state', $(this).attr('state'));
+            $('#stateList').hide();
+            return false;
+        });
+    });
 });
 
 /**
@@ -67,6 +77,30 @@ function resizeWindow(){
             width: fullWidth,
             height: fullHeight
         });
+    });
+}
+
+/**
+ * 号码自动提示
+ */
+function autocompleteForAccount(){
+    // @todo: 读取本地号码历史
+    var historyAccounts = [
+       { value: '55033782', data: '55033782' },
+       { value: '123456789', data: '123456789' },
+       { value: '113132', data: '113132' },
+       { value: '1021333312', data: '1021333312' },
+       { value: '15555555', data: '15555555' },
+       { value: '441444444', data: '441444444' },
+       { value: '439121681', data: '439121681' },
+       { value: '219433681', data: '219433681' },
+       { value: '6666666', data: '6666666' }
+    ];
+    
+    $('#account').autocomplete({
+        lookup: historyAccounts,
+        maxHeight: 118,
+        autoSelectFirst: true
     });
 }
 
@@ -186,17 +220,6 @@ window.onclick = function(){
 	}
 }
 
-window.onload = function(){
-	var statelist = document.getElementsByClassName('stateList');
-	for(var i = 0; i < statelist.length; i++){
-		statelist[i].onclick = function(){
-			document.getElementById('state').setAttribute('state', this.getAttribute('state'));
-			document.getElementById('stateList').style.display = 'none';
-			return false;
-		}
-	}
-}
-
 function doLogin(){
 	if(login){
 		chrome.extension.sendMessage('cancel');
@@ -211,6 +234,14 @@ function doLogin(){
 		password = document.getElementById('password').value;
 	}
 	var state = document.getElementById('state').getAttribute('state');
+	if(!account) {
+	    $('#account').focus();
+	    return;
+	}
+	if(!password) {
+	    $('#password').focus();
+	    return;
+	}
 	if(account && password){
 		if(document.getElementById('rememberPwd').checked){
 			localStorage.account = account;
@@ -218,8 +249,9 @@ function doLogin(){
 			localStorage.state = state;
 		}
 		login = true;
-		document.getElementById('loginButtonInner').innerHTML = '取&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;消';
+		document.getElementById('loginButtonInner').innerHTML = '取&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;消';
 		document.getElementById('beforeLogin').style.display = 'none';
+		$('#currentAccount').html('（'+account+'）');
 		document.getElementById('afterLogin').style.display = 'block';
 		chrome.extension.sendMessage('login;'+encodeURIComponent(account)+';'+encodeURIComponent(password)+';'+encodeURIComponent(state));
 	}
