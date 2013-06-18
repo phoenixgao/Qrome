@@ -181,9 +181,7 @@ function slideOut(el){
 }
 
 function groupOpen(el){
-	el.className = 'groupOpen';
 	el.style.display = 'block';
-	setTimeout(function(){el.className = ''}, 200);
 }
 
 function clickTag(el){
