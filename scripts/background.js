@@ -104,7 +104,7 @@ chrome.extension.onMessage.addListener(function(request, sender, callback) {
 				left: window.screen.width/2-190,
 				top: window.screen.height/2-250,
 				focused: true,
-				type: 'panel'
+				type: 'popup'
 			},function(window){loginWindowId=window.id});
 		}
 	}

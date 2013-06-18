@@ -30,6 +30,9 @@ body.noon {
 body.afternoon {
     background: url(../images/login/afternoon.jpg) 0 0 no-repeat;
 }
+body.dusk {
+    background: url(../images/login/dusk.jpg) 0 0 no-repeat;
+}
 body.evening {
     background: url(../images/login/evening.jpg) 0 0 no-repeat;
 }
