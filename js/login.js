@@ -1,5 +1,6 @@
 $(function(){
     showBackground();
+    resizeWindow();
 });
 
 /**
@@ -10,8 +11,11 @@ function showBackground(){
     
     var time = new Date();
     var hours = time.getHours();
-    if (0 <= hours && hours < 5) {
+    if (0 <= hours && hours < 4) {
         timeClass = 'night';
+    }
+    else if (4 <= hours && hours < 5) {
+        timeClass = 'beforedawn';
     }
     else if (5 <= hours && hours < 7) {
         timeClass = 'dawn';
@@ -36,6 +40,34 @@ function showBackground(){
     }
     
     $('body').addClass(timeClass);
+}
+
+/**
+ * 重新计算登录窗口大小
+ */
+function resizeWindow(){
+    chrome.windows.getCurrent(function(w) {
+        var width = window.innerWidth;
+        var height = window.innerHeight;
+        var fwidth = w.width;
+        var fheight = w.height;
+        console.log(fwidth);
+        console.log(fheight);
+        
+        if(width != 380){
+            var fullWidth = fwidth + 380 - width;
+            console.log(fullWidth);
+        }
+        if(height != 292){
+            var fullHeight = fheight + 292 - height;
+            console.log(fullHeight);
+        }
+        
+        chrome.windows.update(chrome.windows.WINDOW_ID_CURRENT, {
+            width: fullWidth,
+            height: fullHeight
+        });
+    });
 }
 
 var login = false;
