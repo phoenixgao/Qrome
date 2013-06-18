@@ -6,7 +6,7 @@
 
 html,body {
     width: 380px;
-    height: 290px;
+    height: 292px;
 }
 
 body {
@@ -15,7 +15,26 @@ body {
     font-size: 12px;
     -webkit-user-select: none;
     cursor: default;
-    background: url(../images/loginbg.png) no-repeat;
+    background: #F5F5F5;
+}
+
+body.dawn {
+    background: url(../images/login/dawn.jpg) 0 0 no-repeat;
+}
+body.morning {
+    background: url(../images/login/morning.jpg) 0 0 no-repeat;
+}
+body.noon {
+    background: url(../images/login/noon.jpg) 0 0 no-repeat;
+}
+body.afternoon {
+    background: url(../images/login/afternoon.jpg) 0 0 no-repeat;
+}
+body.evening {
+    background: url(../images/login/evening.jpg) 0 0 no-repeat;
+}
+body.night {
+    background: url(../images/login/night.jpg) 0 0 no-repeat;
 }
 
 span {
@@ -72,12 +91,12 @@ a {
     padding: 6px 0 3px 0;
     height: 40px;
     border-top: #dbdbdb 1px solid;
-    background: -webkit-linear-gradient(top, #c3cfdb 0%,#ffffff 100%);
+    background: rgba(255, 255, 255, 0.6);
 }
 
 #loginButtonOuter {
     margin: 0 auto;
-    background: white;
+    background: #FFF;
     width: 180px;
     -webkit-border-radius: 8px;
     padding: 1px;

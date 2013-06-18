@@ -1,7 +1,7 @@
 ﻿{
 	"name": "Qrome",
-	"version": "0.10",
-	"manifest_version": 1,
+	"version": "0.1.0",
+	"manifest_version": 2,
 	"description": "Chrome OS QQ客户端",
 	"minimum_chrome_version": "25.0.1364.97",
 	"browser_action": {

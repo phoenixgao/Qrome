@@ -1,3 +1,43 @@
+$(function(){
+    showBackground();
+});
+
+/**
+ * 根据时间段显示不同登录背景
+ */
+function showBackground(){
+    var timeClass = '';
+    
+    var time = new Date();
+    var hours = time.getHours();
+    if (0 <= hours && hours < 5) {
+        timeClass = 'night';
+    }
+    else if (5 <= hours && hours < 7) {
+        timeClass = 'dawn';
+    }
+    else if (7 <= hours && hours < 10) {
+        timeClass = 'morning';
+    }
+    else if (10 <= hours && hours < 14) {
+        timeClass = 'noon';
+    }
+    else if (14 <= hours && hours < 17) {
+        timeClass = 'afternoon';
+    }
+    else if (17 <= hours && hours < 19) {
+        timeClass = 'dusk';
+    }
+    else if (19 <= hours && hours < 22) {
+        timeClass = 'evening';
+    }
+    else if (22 <= hours && hours < 24) {
+        timeClass = 'night';
+    }
+    
+    $('body').addClass(timeClass);
+}
+
 var login = false;
 var stateListHover = false;
 
