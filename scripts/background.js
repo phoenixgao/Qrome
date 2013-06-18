@@ -100,7 +100,7 @@ chrome.extension.onMessage.addListener(function(request, sender, callback) {
 			chrome.windows.create({
 				url: 'login.html?'+(logining?'101':'100'),
 				width: 380,
-				height: 310,
+				height: 292,
 				left: window.screen.width/2-190,
 				top: window.screen.height/2-250,
 				focused: true,
