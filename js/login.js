@@ -11,6 +11,14 @@ $(function(){
             return false;
         });
     });
+    
+    $('#fit').click(function(){
+        resizeWindow();
+    });
+    
+    $('#settings').click(function(){
+        window.open('settings.html', '_blank');
+    });
 });
 
 /**

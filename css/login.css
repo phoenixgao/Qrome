@@ -60,6 +60,45 @@ body.night {
     width:380px;
     height:142px;
 }
+.opbox {
+    width:58px;
+    height:20px;
+    position:absolute;
+    right:0;
+    top:0;
+}
+.opbox #fit, .opbox #settings {
+    float:left;
+    width:28px;
+    height:20px;
+    border-top:1px solid #CCC;
+    background: -webkit-linear-gradient(top, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0) 100%);
+}
+.opbox #fit:hover, .opbox #settings:hover {
+    background: -webkit-linear-gradient(top, rgba(60,90,200,0.9) 0%, rgba(60,90,200,0) 100%);
+}
+.opbox #settings div {
+    width:28px;
+    height:20px;
+    background: url(../images/login/btn-settings.png) 0 0 no-repeat;
+}
+.opbox #settings div:hover {
+    background: url(../images/login/btn-settings.png) 0 -1px no-repeat;
+}
+.opbox #fit div {
+    width:28px;
+    height:20px;
+    background: url(../images/login/btn-fit.png) 0 0 no-repeat;
+}
+.opbox #fit div:hover {
+    background: url(../images/login/btn-fit.png) 0 -1px no-repeat;
+}
+.opbox .border {
+    float:left;
+    width:1px;
+    height:18px;
+    background: -webkit-linear-gradient(top, rgba(120,120,120,0.9) 0%, rgba(120,120,120,0) 100%);
+}
 #login-logo {
     background: url(../images/login-logo.png) 0 0 no-repeat;
     position:absolute;
