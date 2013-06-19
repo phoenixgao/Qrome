@@ -170,17 +170,21 @@ body.night {
 }
 #account, #password {
     font-family:'微软雅黑';
-    padding: 5px 24px 5px 5px;
+    padding: 5px 24px 6px 5px;
     width: 158px;
-    height: 14px;
-    line-height: 12px;
-    font-size: 12px;
+    height: 13px;
+    line-height: 13px;
+    font-size: 13px;
     border:1px solid #AAA;
     border-radius:2px;
     -webkit-user-select: text;
     cursor: auto;
     float: left;
     outline-color: #088cd8;
+}
+.inputOuter ::-webkit-input-placeholder {
+    font-size:12px;
+    line-height:18px;
 }
 
 #loginButtonOuter {
