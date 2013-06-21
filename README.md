@@ -4,7 +4,7 @@
  / / / / / ___/ __ \/ __ `__ \/ _ \
 / /_/ / / /  / /_/ / / / / / /  __/
 \___\_\/_/   \____/_/ /_/ /_/\___/
-
+</pre>
 #Qrome
 Qrome是一个的开源的QQ客户端。
 
@@ -26,4 +26,4 @@ Qrome是开源的项目，遵循[**GPLv2**](http://www.gnu.org/licenses/gpl-2.0.
 
 ## 捐助Qrome
 如果您希望捐助开发者，可以通过 [https://me.alipay.com/xgao](https://me.alipay.com/xgao) 捐款（需要支付宝）。
-</pre>
+
