@@ -4,7 +4,7 @@
  / / / / / ___/ __ \/ __ `__ \/ _ \
 / /_/ / / /  / /_/ / / / / / /  __/
 \___\_\/_/   \____/_/ /_/ /_/\___/
-</pre>
+
 #Qrome
 Qrome是一个的开源的QQ客户端。
 
@@ -14,7 +14,7 @@ Qrome是一个的开源的QQ客户端。
 Qrome使用WebQQ API登录和与腾讯服务器进行通信，登录及通信过程只与 `*.qq.com` 域进行数据交换。
 
 ## 软件许可
-Qrome是开源的项目，遵循[**GPLv3**](https://zh.wikipedia.org/wiki/GNU%E9%80%9A%E7%94%A8%E5%85%AC%E5%85%B1%E8%AE%B8%E5%8F%AF%E8%AF%81)发布。
+Qrome是开源的项目，遵循[**GPLv2**](http://www.gnu.org/licenses/gpl-2.0.html)发布。
 
 
 ## Qrome离不开以下项目的支持
@@ -26,3 +26,4 @@ Qrome是开源的项目，遵循[**GPLv3**](https://zh.wikipedia.org/wiki/GNU%E9
 
 ## 捐助Qrome
 如果您希望捐助开发者，可以通过 [https://me.alipay.com/xgao](https://me.alipay.com/xgao) 捐款（需要支付宝）。
+</pre>
