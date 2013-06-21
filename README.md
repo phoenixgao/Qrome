@@ -17,11 +17,15 @@ Qrome使用WebQQ API登录和与腾讯服务器进行通信，登录及通信过
 Qrome是开源的项目，遵循[**GPLv2**](http://www.gnu.org/licenses/gpl-2.0.html)发布。
 
 
-## Qrome离不开以下项目的支持
- * Dualx
- * jQuery
- * jQuery Autocomplete
- * qTip2
+## Qrome离不开以下开源项目的支持
+ * **Dualx** [https://github.com/sneezry/Dualx](https://github.com/sneezry/Dualx)
+ * **jQuery** [http://jquery.com](http://jquery.com)
+ * **jQuery Autocomplete**
+ * **qTip2**
+ 
+### 并感谢：
+
+ * **WebQQ** [http://web.qq.com](http://web.qq.com)
 
 
 ## 捐助Qrome
