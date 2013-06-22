@@ -19,9 +19,15 @@ Qrome是开源的项目，遵循[**GPLv2**](http://www.gnu.org/licenses/gpl-2.0.
 
 ## Qrome离不开以下开源项目的支持
  * **Dualx** [https://github.com/sneezry/Dualx](https://github.com/sneezry/Dualx)
+ 
+    * Dualx是Qrome的前身。
+
  * **jQuery** [http://jquery.com](http://jquery.com)
- * **jQuery Autocomplete**
- * **qTip2**
+ * **jQuery-Autocomplete** [https://github.com/devbridge/jQuery-Autocomplete](https://github.com/devbridge/jQuery-Autocomplete)
+ 
+    * Qrome对此插件做了改进。
+
+ * **qTip2** [http://craigsworks.com/projects/qtip2/](http://craigsworks.com/projects/qtip2/)
  
 ### 并感谢：
 
