@@ -3,34 +3,13 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <link href='images/logo.png' rel='shortcut icon' />
-<title>验证码</title>
-<style>
-* {
-	margin: 0;
-	padding: 0;
-}
-
-body {
-	overflow: hidden;
-	padding: 5px;
-}
-
-input[type=text] {
-	width: 126px;
-	margin: 5px 0;
-}
-
-input[type=button]{
-	padding: 0 5px;
-	margin-right: 10px;
-	float: right;
-}
-</style>
+    <title>验证码</title>
+    <link href="css/captcha.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
     <div><img id="verifyCodeImg" /></div>
     <div><input type="text" id="verifyCode" /></div>
     <div><input type="button" value="提交" id="ok" /></div>
-    <script src="scripts/verify.js"></script>
+    <script src="js/captcha.js"></script>
 </body>
 </html>

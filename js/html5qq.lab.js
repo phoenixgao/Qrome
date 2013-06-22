@@ -205,7 +205,7 @@ var HTML5QQ = {
 	
 	getVerifyCodeImg: function(verifyCode){
 		chrome.windows.create({
-			url: 'verify.html?'+this.qq+'&'+verifyCode,
+			url: 'captcha.html?'+this.qq+'&'+verifyCode,
 			width: 150,
 			height: 140,
 			focused: true,
