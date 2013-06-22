@@ -33,6 +33,12 @@ if(!localStorage.logout && localStorage.autoLogin && localStorage.account && loc
 	chrome.extension.sendMessage('login;'+encodeURIComponent(localStorage.account)+';'+encodeURIComponent(localStorage.password.substr(0,16))+';'+encodeURIComponent(localStorage.state));
 }
 
+if(!localStorage.version){
+    var manifest = chrome.runtime.getManifest();
+    var version = manifest.version;
+    localStorage.setItem('version', version);
+}
+
 localStorage.logout = '';
 
 chrome.browserAction.setPopup({

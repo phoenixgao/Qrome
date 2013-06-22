@@ -1,3 +1,12 @@
+$(function(){
+    showVersionInTitle();
+});
+
+function showVersionInTitle(){
+    var version = localStorage.version;
+    $('title').append(' '+version);
+}
+
 var catTransfer = new Array;
 var botList = new Array('youdaodic', 'weather', 'xiami');
 
