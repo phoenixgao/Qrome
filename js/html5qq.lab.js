@@ -291,6 +291,19 @@ var HTML5QQ = {
 		 				HTML5QQ.outputDebug("login: uin("+cookie.value+")");
 					}
 				});
+				// 记录登录历史
+				var loginHistory = localStorage.loginHistory;
+				if (typeof(loginHistory) == 'undefined') {
+    			    var arrLoginHistory = [];
+				}
+				else {
+    			    var arrLoginHistory = JSON.parse(loginHistory);
+				}
+				if(arrLoginHistory.indexOf(HTML5QQ.qq) != -1) {
+    				arrLoginHistory.splice(arrLoginHistory.indexOf(HTML5QQ.qq), 1);
+				}
+				arrLoginHistory.push(HTML5QQ.qq);
+				localStorage.setItem('loginHistory', JSON.stringify(arrLoginHistory));
 			}
 			else{
 				HTML5QQ.errorMsg(code.split(',')[4].substr(1, code.split(',')[4].length-2));

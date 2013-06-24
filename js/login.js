@@ -92,18 +92,18 @@ function resizeWindow(){
  * 号码自动提示
  */
 function autocompleteForAccount(){
-    // @todo: 读取本地号码历史
-    var historyAccounts = [
-       { value: '55033782', data: '55033782' },
-       { value: '123456789', data: '123456789' },
-       { value: '113132', data: '113132' },
-       { value: '1021333312', data: '1021333312' },
-       { value: '15555555', data: '15555555' },
-       { value: '441444444', data: '441444444' },
-       { value: '439121681', data: '439121681' },
-       { value: '219433681', data: '219433681' },
-       { value: '6666666', data: '6666666' }
-    ];
+    var historyAccounts = [];
+    var loginHistory = localStorage.loginHistory;
+    if (typeof(loginHistory) == 'undefined') {
+        var arrLoginHistory = [];
+    }
+    else {
+        var arrLoginHistory = JSON.parse(loginHistory);
+    }
+    for(var i = arrLoginHistory.length; i > 0; i --) {
+        historyAccounts.push({value:arrLoginHistory[i-1], data:arrLoginHistory[i-1]});
+    }
+    console.log(historyAccounts);
     
     $('#account').autocomplete({
         lookup: historyAccounts,
