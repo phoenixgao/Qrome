@@ -581,25 +581,88 @@ li {
     background-color: #3991d1;
 }
 
+/*状态选择*/
 #stateList {
-    width: 22px;
-    border: rgba(0, 0, 0, 0.5) 1px solid;
-    box-shadow: 0 0 1px rgba(0, 0, 0, 0.5);
-    border-radius: 2px;
-    background: white;
-    margin: -21px 0 0 -1px;
-    position: relative;
-    z-index: 10;
+    text-align:left;
+    font-size:12px;
+    width: 120px;
+    border: #fff 1px solid;
+    -webkit-border-radius: 2px;
+    overflow: hidden;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.75);
     display: none;
+    margin: 0px 0 0 -1px;
+    z-index: 10;
+    position: relative;
+    list-style:none;
+    background: -webkit-linear-gradient(left, rgba(210, 220, 230, 0.95) 0px, rgba(200, 230, 250, 0.95) 24px, rgba(255, 255, 255, 0.95) 25px, rgba(255, 255, 255, 0.95) 100px);
+}
+#stateList li {
+    height: 24px;
+    line-height: 24px;
+    padding: 0;
+}
+#stateList li span{
+    display:block;
+    line-height: 24px;
+    padding-left:32px;
+    background-image: none;
+    background-position: 6px 6px;
+    background-repeat: no-repeat;
+}
+#stateList li:hover {
+    color:#FFF;
+    background: -webkit-linear-gradient(top, rgba(120, 150, 230, 0.9) 0%, rgba(70, 80, 220, 0.9) 100%);
 }
 
-#stateList div {
-    width: 22px;
-    height: 20px;
+#stateList li[state=online] span{
+    background-image: url(../images/online.png);
 }
 
-#stateList div:hover {
-    background-color: #3d95d6;
+#stateList li[state=callme] span{
+    background-image: url(../images/callme.png);
+    border-bottom:1px solid rgba(210, 220, 230, 0.95);
+}
+
+#stateList li[state=busy] span{
+    background-image: url(../images/busy.png);
+}
+
+#stateList li[state=away] span{
+    background-image: url(../images/away.png);
+}
+
+#stateList li[state=hidden] span{
+    background-image: url(../images/hidden.png);
+}
+
+#stateList li[state=silent] span{
+    background-image: url(../images/silent.png);
+    border-bottom:1px solid rgba(210, 220, 230, 0.95);
+}
+
+#stateList li[state=online] span:hover {
+    background-image: url(../images/online.png);
+}
+
+#stateList li[state=callme] span:hover {
+    background-image: url(../images/callme.png);
+}
+
+#stateList li[state=busy] span:hover {
+    background-image: url(../images/busy.png);
+}
+
+#stateList li[state=away] span:hover {
+    background-image: url(../images/away.png);
+}
+
+#stateList li[state=hidden] span:hover {
+    background-image: url(../images/hidden.png);
+}
+
+#stateList li[state=silent] span:hover {
+    background-image: url(../images/silent.png);
 }
 
 #setLnick {

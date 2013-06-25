@@ -1,5 +1,25 @@
 $(function(){
     showVersionInTitle();
+    
+    // 选择登录状态
+    $('#stateList li').each(function(){
+        $(this).click(function(){
+            $('#state').attr('state', $(this).attr('state'));
+            
+            if($(this).attr('state') == 'offline'){
+                chrome.extension.sendMessage('logout');
+            }
+            else{
+                chrome.extension.sendMessage('state'+$(this).attr('state'));
+            }
+            $('#stateIco').attr('class', 'state_' + $(this).attr('state'));
+            $('#stateIco').attr('title', '当前状态 '+ $(this).children('span').text());
+            showStateList = false;
+            $('#stateList').hide();
+            
+            return false;
+        });
+    });
 });
 
 function showVersionInTitle(){
@@ -24,21 +44,6 @@ window.onresize = function(){
 
 window.onload = function(){
 	document.getElementById('list').style.height = (window.innerHeight-224)+'px';
-	var stateList = document.getElementsByName('stateList');
-	for(var i = 0; i < stateList.length; i++){
-		stateList[i].onclick = function(){
-			if(this.getAttribute('state') == 'offline'){
-				chrome.extension.sendMessage('logout');
-			}
-			else{
-				chrome.extension.sendMessage('state'+this.getAttribute('state'));
-			}
-			document.getElementById('stateIco').className = 'state_'+this.getAttribute('state');
-			document.getElementById('stateIco').title = '当前状态 '+this.getAttribute('cnstate');
-			showStateList = false;
-			document.getElementById('stateList').style.display = 'none';
-		}
-	}
 }
 
 ((function(){
