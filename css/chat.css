@@ -11,7 +11,7 @@ html {
 }
 
 body {
-    background: url(../images/bg.jpg) no-repeat top right #7aba01;
+    background: #F5F5F5;
     -webkit-user-select: none;
 }
 
@@ -199,7 +199,7 @@ select {
 }
 
 #toolBar {
-    background: -webkit-linear-gradient(left, #dbedbb 0%,#e3f0cc 100%);
+    background: -webkit-linear-gradient(left, #DDD 0%,#EEE 100%);
     height: 22px;
     padding: 3px 5px;
     cursor: default;
@@ -207,7 +207,7 @@ select {
 }
 
 #inputBoxBg {
-    background: -webkit-linear-gradient(left, #FFFFFF 20%,#e3f0cc 100%);
+    background: -webkit-linear-gradient(left, #FFFFFF 20%,#EEE 100%);
     font-size: 16pt;
     color: black;
     font-family: 宋体;
@@ -223,7 +223,7 @@ select {
 }
 
 #buttonBar {
-    background: -webkit-linear-gradient(left, #dbedbb 0%,#e3f0cc 100%);
+    background: -webkit-linear-gradient(left, #DDD 0%,#EEE 100%);
     height: 20px;
     padding: 4px 10px;
     cursor: default;

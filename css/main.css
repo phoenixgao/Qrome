@@ -10,7 +10,7 @@ html {
 }
 
 body {
-    background: url(../images/bg.jpg) no-repeat top right #7aba01;
+    background: #F5F5F5;
     -webkit-user-select: none;
 }
 
@@ -349,7 +349,7 @@ li {
 }
 
 #footer {
-    background: #e1efc7;
+    background: #EEE;
     height: 26px;
 }
 
