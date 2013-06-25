@@ -1,7 +1,6 @@
 * {
     margin: 0;
     padding: 0;
-    font-family: arial;
     -webkit-text-size-adjust: none;
 }
 
@@ -12,6 +11,7 @@ html {
 body {
     background: #F5F5F5;
     -webkit-user-select: none;
+    font-family: '微软雅黑';
 }
 
 ul, li {
@@ -30,12 +30,12 @@ li {
     -webkit-border-radius: 0;
 }
 ::-webkit-scrollbar{
-    width: 10px;
+    width: 8px;
     height: 10px;
 }
 ::-webkit-scrollbar-thumb{
     height: 50px;
-    background-color: #aaa;
+    background-color: #bbb;
     -webkit-border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
@@ -98,25 +98,40 @@ li {
         opacity:1;
     }
 }
-
+#headTop {
+    padding:6px 6px 0 6px;
+    height:96px;
+}
+#headpic {
+    cursor:pointer;
+    float:left;
+    width:60px;
+    height:60px;
+    position:relative;
+    border-radius:4px;
+    background: #FFF url(../images/logo.png) 0 0 no-repeat;
+    background-size: 60px 60px;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+}
+#headpic:hover {
+    box-shadow: 1px 1px 3px rgba(0, 0, 255, 0.6);
+}
 #userInfo {
-    padding: 42px 10px 14px;
-    text-shadow: 1px 0 1px rgba(255, 255, 255, 0.35), 0 1px 1px rgba(255, 255, 255, 0.35), 
-    0 -1px 1px rgba(255, 255, 255, 0.35), -1px 0 1px rgba(255, 255, 255, 0.35);
-  cursor: default;
-  min-height: 54px;
+    float: left;
+    clear:right;
+    cursor: default;
 }
 
 #userName {
-    font-size: 24px;
+    text-shadow: 1px 0 1px rgba(255, 255, 255, 0.35), 0 1px 1px rgba(255, 255, 255, 0.35), 0 -1px 1px rgba(255, 255, 255, 0.35), -1px 0 1px rgba(255, 255, 255, 0.35);
+    font-size: 14px;
+    font-family: '微软雅黑';
     float: left;
-    letter-spacing: 1px;
     font-weight: bold;
 }
 
 #userState {
     margin: 0 1px;
-    margin-top: 10px;
     height: 20px;
     width: 22px;
     border-radius: 2px;
@@ -132,7 +147,6 @@ li {
 }
 
 #userLevel {
-    margin-top: 12px;
     padding: 0 1px;
     border-radius: 2px;
     height: 16px;
@@ -153,7 +167,7 @@ li {
 }
 
 #userMotto {
-    font-size: 14px;
+    font-size: 12px;
     clear: both;
     height: 16px;
     line-height: 16px;
@@ -198,7 +212,9 @@ li {
 }
 
 #searchBackground {
-    
+    width:100%;
+    float:left;
+    clear:both;
     line-height: 26px;
     border-radius: 2px;
     background: url(../images/search.png) no-repeat center right rgba(255, 255, 255, 0.35);
@@ -338,7 +354,6 @@ li {
 
 #list {
     background: white;
-    height: 376px;
     clear: both;
     padding: 0 2px;
     overflow-y: scroll;

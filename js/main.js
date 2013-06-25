@@ -39,11 +39,11 @@ window.onunload = function(){
 }
 
 window.onresize = function(){
-	document.getElementById('list').style.height = (window.innerHeight-224)+'px';
+	document.getElementById('list').style.height = (window.innerHeight-192)+'px';
 }
 
 window.onload = function(){
-	document.getElementById('list').style.height = (window.innerHeight-224)+'px';
+	document.getElementById('list').style.height = (window.innerHeight-192)+'px';
 }
 
 ((function(){
