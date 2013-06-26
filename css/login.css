@@ -194,6 +194,27 @@ body.night {
     width:20px;
     background: -webkit-linear-gradient(top, #FFFFFF 0%, #F0F0F0 100%);
 }
+#chooseAccount .icon-down {
+    display:block;
+    height:24px;
+    width:20px;
+    background: url(../images/login/arrow-down.png) 6px 10px no-repeat;
+}
+#chooseAccount .icon-up {
+    display:block;
+    height:24px;
+    width:20px;
+    background: url(../images/login/arrow-up.png) 6px 10px no-repeat;
+}
+#toggleKeyboard {
+    cursor:pointer;
+    top:3px;
+    left:168px;
+    position:absolute;
+    height:24px;
+    width:20px;
+    background: url(../images/login/keyboard.png) 0 2px no-repeat;
+}
 #chooseAccount:hover {
     border-left:1px solid #CCE;
     background: -webkit-linear-gradient(top, #F0F5FA 0%, #E0E5EA 100%);
