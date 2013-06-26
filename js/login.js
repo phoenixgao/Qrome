@@ -19,7 +19,33 @@ $(function(){
     $('#settings').click(function(){
         window.open('settings.html', '_blank');
     });
+    
+    // 下拉选择账号
+    s_showAccountList = false;
+    $('#chooseAccount').click(function(){
+        if(s_showAccountList) {
+            hideAccountList();
+        }
+        else {
+            showAccountList();
+        }
+    });
 });
+
+function showAccountList() {
+    $('#chooseAccount').children('span').removeClass('icon-down').addClass('icon-up');
+    $('.autocomplete-suggestions').show();
+    $('#account').autocomplete().showall();
+    
+    s_showAccountList = true;
+}
+function hideAccountList() {
+    $('#chooseAccount').children('span').removeClass('icon-up').addClass('icon-down');
+    $('.autocomplete-suggestions').hide();
+    $('#account').autocomplete().clear();
+    
+    s_showAccountList = false;
+}
 
 /**
  * 根据时间段显示不同登录背景
