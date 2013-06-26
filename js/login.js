@@ -34,14 +34,12 @@ $(function(){
 
 function showAccountList() {
     $('#chooseAccount').children('span').removeClass('icon-down').addClass('icon-up');
-    $('.autocomplete-suggestions').show();
-    $('#account').autocomplete().showall();
+    $('#account').autocomplete().autocomplete( "search", "" );
     
     s_showAccountList = true;
 }
 function hideAccountList() {
     $('#chooseAccount').children('span').removeClass('icon-up').addClass('icon-down');
-    $('.autocomplete-suggestions').hide();
     $('#account').autocomplete().clear();
     
     s_showAccountList = false;
@@ -132,9 +130,9 @@ function autocompleteForAccount(){
     console.log(historyAccounts);
     
     $('#account').autocomplete({
-        lookup: historyAccounts,
-        maxHeight: 118,
-        autoSelectFirst: true
+        source: historyAccounts,
+        delay: 0,
+        minLength: 0
     });
 }
 
