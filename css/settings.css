@@ -1,0 +1,29 @@
+body { 
+    background:#F1F3F5;
+    font-family:'微软雅黑';
+    font-size:12px;
+}
+
+#container {
+    position:relative; 
+    margin-top:30px; 
+    width:560px; 
+    background:white; 
+    margin-left:auto; 
+    margin-right:auto; /*border-radius:3px;*/ 
+    border:1px solid #ccc; padding:10px; /*padding-bottom:20px;*/ 
+    -webkit-box-shadow:0 0 10px #ccc; 
+}
+
+#settings-panel {
+}
+
+h2 { font-family: arial; font-size: 24px; border-bottom:1px solid #eee; padding-bottom:5px; margin-bottom:5px; clear:both; }
+
+textarea {
+    font-family:consolas, '微软雅黑';
+    width:100%;
+    padding:0;
+    height:120px;
+    max-width:100%;
+}
