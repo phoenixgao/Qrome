@@ -1,3 +1,23 @@
+// 样式输入tab缩进代码
+$(document).delegate('#mainstyle, #chatstyle, #qunstyle', 'keydown', function(e) { 
+    var keyCode = e.keyCode || e.which; 
+
+    if (keyCode == 9) { 
+        e.preventDefault(); 
+        var start = $(this).get(0).selectionStart;
+        var end = $(this).get(0).selectionEnd;
+
+        // set textarea value to: text before caret + tab + text after caret
+        $(this).val($(this).val().substring(0, start)
+            + "    "
+            + $(this).val().substring(end));
+
+        // put caret at right position again
+        $(this).get(0).selectionStart = 
+        $(this).get(0).selectionEnd = start + 4;
+    } 
+});
+
 window.onerror = function(err, u, l){
 	chrome.extension.sendMessage('error::settings:: <'+l+'> '+err);
 }
@@ -16,10 +36,6 @@ for(var i=0; i<boxs.length; i++){
 	}
 }
 
-document.getElementById('mainstyle').onclick = function(){
-	this.select();
-}
-
 document.getElementById('mainstyle').onblur = function(){
 	localStorage['mainstyle'] = this.value;
 }
@@ -28,20 +44,12 @@ if(localStorage['mainstyle']){
 	document.getElementById('mainstyle').value = localStorage['mainstyle'];
 }
 
-document.getElementById('chatstyle').onclick = function(){
-	this.select();
-}
-
 document.getElementById('chatstyle').onblur = function(){
 	localStorage['chatstyle'] = this.value;
 }
 
 if(localStorage['chatstyle']){
 	document.getElementById('chatstyle').value = localStorage['chatstyle'];
-}
-
-document.getElementById('qunstyle').onclick = function(){
-	this.select();
 }
 
 document.getElementById('qunstyle').onblur = function(){
