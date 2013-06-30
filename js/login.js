@@ -3,6 +3,54 @@ $(function(){
     resizeWindow();
     autocompleteForAccount();
     
+    // 虚拟键盘
+    s_showKeyboard = false;
+    $('#password').keyboard({
+        openOn   : null,
+        stayOpen : true,
+        layout   : 'international',
+        usePreview : false,
+        autoAccept : true,
+        position : {
+            of : $('body'),
+            my : 'center bottom',
+            at : 'center bottom',
+        },
+        layout: 'custom',
+        customLayout: {
+            'default': [
+                '` 1 2 3 4 5 6 7 8 9 0 - = {bksp}',
+                'q w e r t y u i o p [ ] \\',
+                '{shift} a s d f g h j k l ; \'',
+                'z x c v {space} b n m , . /'
+            ],
+            'shift': [
+                '~ ! @ # $ % ^ & * ( ) _ + {bksp}',
+                'Q W E R T Y U I O P { } |',
+                '{shift} A S D F G H J K L : "',
+                'Z X C V {space} B N M < > ?',
+            ]
+        },
+        display: {
+            'bksp' : '←:Backspace'
+        },
+        visible: function() {
+            s_showKeyboard = true;
+        },
+        hidden: function() {
+            s_showKeyboard = false;
+        }
+    });
+    $('#toggleKeyboard').click(function(e){
+        e.preventDefault();
+        if(!s_showKeyboard) {
+            $('#password').getkeyboard().reveal();
+        }
+        else {
+            $('#password').getkeyboard().accept();
+        }
+    });
+    
     // 选择登录状态
     $('#stateList li').each(function(){
         $(this).click(function(){
@@ -34,13 +82,13 @@ $(function(){
 
 function showAccountList() {
     $('#chooseAccount').children('span').removeClass('icon-down').addClass('icon-up');
-    $('#account').autocomplete().autocomplete( "search", "" );
+    $('#account').autocomplete( "search", "" );
     
     s_showAccountList = true;
 }
 function hideAccountList() {
     $('#chooseAccount').children('span').removeClass('icon-up').addClass('icon-down');
-    $('#account').autocomplete().clear();
+    $('#account').autocomplete( "close" );
     
     s_showAccountList = false;
 }
@@ -127,13 +175,17 @@ function autocompleteForAccount(){
     for(var i = arrLoginHistory.length; i > 0; i --) {
         historyAccounts.push({value:arrLoginHistory[i-1], data:arrLoginHistory[i-1]});
     }
-    console.log(historyAccounts);
-    
     $('#account').autocomplete({
         source: historyAccounts,
         delay: 0,
         minLength: 0
     });
+    
+    $('#account').focus();
+    if(typeof(historyAccounts[0])!='undefined') {
+        $('#account').val(historyAccounts[0].value);
+        $('#password').focus();
+    }
 }
 
 var login = false;

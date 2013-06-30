@@ -215,6 +215,9 @@ body.night {
     width:20px;
     background: url(../images/login/keyboard.png) 0 2px no-repeat;
 }
+#toggleKeyboard:active {
+    background: url(../images/login/keyboard.png) 1px 3px no-repeat;
+}
 #chooseAccount:hover {
     border-left:1px solid #CCE;
     background: -webkit-linear-gradient(top, #F0F5FA 0%, #E0E5EA 100%);
@@ -259,7 +262,7 @@ body.night {
     right: 0;
     height: 24px;
     width: 24px;
-    z-index: 10;
+    z-index: 101;
 }
 
 .state {

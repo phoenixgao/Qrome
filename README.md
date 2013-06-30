@@ -24,10 +24,7 @@ Qrome是开源的项目，遵循[**GPLv2**](http://www.gnu.org/licenses/gpl-2.0.
 
  * **jQuery** [http://jquery.com](http://jquery.com)
  * **jQuery UI** [http://jqueryui.com](http://jqueryui.com)
- * **jQuery-Autocomplete** [https://github.com/devbridge/jQuery-Autocomplete](https://github.com/devbridge/jQuery-Autocomplete)
- 
-    * Qrome对此插件做了改进。
-
+ * **jQuery UI Virtual Keyboard** [https://github.com/Mottie/Keyboard](https://github.com/Mottie/Keyboard)
  * **qTip2** [http://craigsworks.com/projects/qtip2/](http://craigsworks.com/projects/qtip2/)
  
 ### 并感谢：

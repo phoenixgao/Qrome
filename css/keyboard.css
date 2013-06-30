@@ -1,0 +1,50 @@
+/* keyboard - jQuery UI Widget */
+.ui-keyboard { padding: 1px 2px 2px 2px; position: absolute; left: 0; top: 0; z-index: 16000; width:376px; overflow:hidden; border-radius:0px;
+    border-left:none;
+    border-right:none;
+    border-bottom:none;
+    border-top:1px solid #336;
+    background: -webkit-linear-gradient(top, rgba(100, 150, 200, 0.80) 0%, rgba(70, 90, 160, 0.80) 100%);
+}
+.ui-keyboard-has-focus { z-index: 16001; }
+.ui-keyboard-button { height: 21px; width: 22px; min-width: 1em; margin: 1px 1px 0 0; cursor: pointer; overflow: hidden; line-height: 1.8em; -moz-user-focus: ignore; 
+    border:1px solid #666 !important; 
+    background:-webkit-linear-gradient(top, #EEE 0%, #E0E0E0 100%) !important; 
+    border-radius:0px;
+}
+.ui-keyboard-button.ui-state-active {
+    background:#FFF !important;
+}
+.ui-keyboard-button span { padding: 0; margin: 0; white-space:nowrap; display: inline-block; font-family:consolas, '微软雅黑';}
+.ui-keyboard-button-endrow { clear: left; }
+.ui-keyboard-widekey { min-width: 4em; width: auto; }
+.ui-keyboard-space { width: 8em; }
+.ui-keyboard-space span, .ui-keyboard-empty span { font: 0/0 a; text-shadow: none;} /* see http://nicolasgallagher.com/another-css-image-replacement-technique/ */
+.ui-keyboard-preview-wrapper { text-align: center; }
+.ui-keyboard-preview { text-align: left; margin: 0 0 3px 0; display: inline; width: 99%;} /* width is calculated in IE, since 99% = 99% full browser width =( */ 
+.ui-keyboard-keyset { text-align: center; white-space: nowrap; }
+.ui-keyboard-input { text-align: left; }
+.ui-keyboard-input-current { -moz-box-shadow: 1px 1px 10px #00f; -webkit-box-shadow: 1px 1px 10px #00f; box-shadow: 1px 1px 10px #00f; }
+.ui-keyboard-placeholder { color: #888; }
+.ui-keyboard-nokeyboard { color: #888; border-color: #888; } /* disabled or readonly inputs, or use input[disabled='disabled'] { color: #f00; } */
+.ui-keyboard-button.disabled { opacity: 0.5; filter: alpha(opacity=50); } /* used by the acceptValid option to make the accept button appear faded */
+.ui-keyboard-spacer { display: inline-block; width: 1px; height: 0; }
+
+/* combo key styling - toggles diacritics on/off */
+.ui-keyboard-button.ui-keyboard-combo.ui-state-default { border-color: #ffaf0f; }
+
+/* (in)valid inputs */
+button.ui-keyboard-accept.ui-keyboard-valid-input { border-color: #0c0; background: #080; color: #fff; }
+button.ui-keyboard-accept.ui-keyboard-valid-input:hover { background: #0a0; }
+button.ui-keyboard-accept.ui-keyboard-invalid-input { border-color: #c00; background: #800; color: #fff; }
+button.ui-keyboard-accept.ui-keyboard-invalid-input:hover { background: #a00; }
+
+/* over-ride padding set by mobile ui theme - needed because the mobile script wraps button text with several more spans */
+.ui-bar .ui-btn-inner { height: 2em; padding: 0.2em 0; margin: 0; }
+.ui-bar .ui-btn { margin: 0; font-size: 13px; } /* mobile default size is 13px */
+
+.ui-keyboard div { font-size: 9px; }
+/* I don't own an iPhone so I have no idea how small this really is... is it even clickable with your finger? */
+.ui-bar .ui-btn { margin: 0; font-size: 11px; }
+.ui-bar .ui-keyboard-widekey { width: 2.5em; }
+.ui-bar .ui-btn-inner { height: 2.4em; padding: 0.5em 0; }
