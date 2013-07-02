@@ -26,6 +26,7 @@ Qrome是开源的项目，遵循[**GPLv2**](http://www.gnu.org/licenses/gpl-2.0.
  * **jQuery UI** [http://jqueryui.com](http://jqueryui.com)
  * **jQuery UI Virtual Keyboard** [https://github.com/Mottie/Keyboard](https://github.com/Mottie/Keyboard)
  * **qTip2** [http://craigsworks.com/projects/qtip2/](http://craigsworks.com/projects/qtip2/)
+ * **html5sql** [https://github.com/KenCorbettJr/html5sql](https://github.com/KenCorbettJr/html5sql)
  
 ### 并感谢：
 
