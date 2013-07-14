@@ -1,3 +1,8 @@
+/**
+ * WebQQ Lib for Qrome
+ * 
+ * @author phoenix.x.gao@gmail.com 
+ */
 var WebQQ = {
     define: {
         appid: 1003903,
