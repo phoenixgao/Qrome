@@ -1,6 +1,11 @@
 $(function(){
     showVersionInTitle();
     
+    // POPUP模式
+    if(localStorage.popupmain){
+        $('body').addClass('popup');
+    }
+    
     // 选择登录状态
     $('#stateList li').each(function(){
         $(this).click(function(){

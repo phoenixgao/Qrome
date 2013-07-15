@@ -14,6 +14,10 @@ body {
     font-family: '微软雅黑';
 }
 
+body.popup {
+    height:500px;
+}
+
 ul, li {
     list-style: none;
 }
