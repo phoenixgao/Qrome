@@ -312,7 +312,7 @@ function doLogin(){
 	var account = document.getElementById('account').value;
 	var password;
 	try{
-		password = decodeURIComponent(document.getElementById('password').value);
+		password = document.getElementById('password').value;
 	}
 	catch(e){
 		password = document.getElementById('password').value;
@@ -337,6 +337,11 @@ function doLogin(){
 		document.getElementById('beforeLogin').style.display = 'none';
 		$('#currentAccount').html('（'+account+'）');
 		document.getElementById('afterLogin').style.display = 'block';
-		chrome.extension.sendMessage('login;'+encodeURIComponent(account)+';'+encodeURIComponent(password)+';'+encodeURIComponent(state));
+		chrome.extension.sendMessage({
+		    m: 'login',
+		    account: account,
+		    password: password,
+		    state: state
+		});
 	}
 }

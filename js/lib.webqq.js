@@ -101,8 +101,27 @@ var WebQQ = {
             dataType: 'text',
             success: function(text){
                 var response = that._getArgsArray(text);
-                console.log(response);
+                if(response[0] == "0") {
+                    that.veridyCode = response[2];
+                    this.login(this.gPassword, this.gStatus);
+                }
+                else if(response[0] == "1") {
+                    that.showVerifyCode(response[2]);
+                };
             }
+        });
+    },
+    
+    /**
+     *  
+     */    
+    showVerifyCode: function(verifyCode){
+        chrome.windows.create({
+            url: 'captcha.html?'+this.account+'&'+verifyCode,
+            width: 160,
+            height: 140,
+            focused: true,
+            type: 'popup'
         });
     },
     
