@@ -11,7 +11,7 @@ html {
 }
 
 body {
-    background: url(../images/bg.jpg) no-repeat top right #7aba01;
+    background: #F5F5F5;
     -webkit-user-select: none;
 }
 
@@ -107,6 +107,7 @@ select {
 #userInfo {
     float: left;
     margin-left: 10px;
+    max-width: 400px;
     height: 46px;
     line-height: 46px;
     text-shadow: 1px 0 1px rgba(255, 255, 255, 0.35), 0 1px 1px rgba(255, 255, 255, 0.35), 
@@ -115,18 +116,24 @@ select {
 }
 
 #userName {
-    height: 22px;
-    line-height: 22px;
-    font-size: 20px;
+    height: 20px;
+    line-height: 20px;
+    font-size: 19px;
     margin-bottom: 4px;
-    font-weight: bold;
+    color:#FFF;
+    font-family: '微软雅黑';
     -webkit-user-select: text;
+    text-shadow: 0px 0px 3px rgba(0, 0, 0, 0.8);
 }
 
 #userPersonal {
     height: 14px;
     line-height: 14px;
     font-size: 12px;
+    overflow: hidden;
+    color:#FFF;
+    font-family: '微软雅黑';
+    text-shadow: 0px 0px 2px rgba(0, 0, 0, 0.8);
 }
 
 #actionBar {
@@ -183,7 +190,7 @@ select {
 }
 
 #toolBar {
-    background: -webkit-linear-gradient(left, #dbedbb 0%,#e3f0cc 100%);
+    background: -webkit-linear-gradient(left, #DDD 0%,#EEE 100%);
     height: 22px;
     padding: 3px 5px;
     cursor: default;
@@ -191,7 +198,7 @@ select {
 }
 
 #inputBoxBg {
-    background: -webkit-linear-gradient(left, #FFFFFF 20%,#e3f0cc 100%);
+    background: -webkit-linear-gradient(left, #FFFFFF 20%,#EEE 100%);
     font-size: 16pt;
     color: black;
     font-family: "宋体";
@@ -207,7 +214,7 @@ select {
 }
 
 #buttonBar {
-    background: -webkit-linear-gradient(left, #dbedbb 0%,#e3f0cc 100%);
+    background: -webkit-linear-gradient(left, #DDD 0%,#EEE 100%);
     height: 20px;
     padding: 4px 10px;
     cursor: default;
