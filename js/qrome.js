@@ -72,6 +72,8 @@ chrome.extension.onMessage.addListener(function(request, sender, callback) {
             account = request.account;
             password = request.password;
             state = request.state;
+            WebQQ.password = password;
+            WebQQ.state = state;
             WebQQ.getVerifyCode(account);
             break;
         }

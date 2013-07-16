@@ -10,7 +10,8 @@ var WebQQ = {
         ptlang: 2052,
         daid: 164,
         jstype: 0,
-        js_ver: 10034
+        js_ver: 10034,
+        action: '5-27-43286'
     },
     /**
      * QQ帐号 
@@ -23,9 +24,15 @@ var WebQQ = {
     status: null,
     
     /**
+     * 密码
+     */
+    password: null,
+    encodedPassword: null,
+    
+    /**
      * 验证码code 
      */
-    verifycode: null,
+    verifyCode: null,
     
     /**
      * login_sig
@@ -99,8 +106,8 @@ var WebQQ = {
             success: function(text){
                 var response = that._getArgsArray(text);
                 if(response[0] == "0") {
-                    that.veridyCode = response[2];
-                    that.doLogin(that.gPassword, that.gStatus);
+                    that.verifyCode = response[2];
+                    that.doLogin(that.password, that.status);
                 }
                 else if(response[0] == "1") {
                     that.showVerifyCode(response[2]);
@@ -122,12 +129,36 @@ var WebQQ = {
         });
     },
     
-    doLogin: function() {
+    doLogin: function(password, status) {
+        var encodedPassword = this._getEncodedPassword(password);
+        
         var that = this;
         $.ajax({
             url: that.URI_LOGIN_SSL,
             data: {
                 u: that.account,
+                p: encodedPassword,
+                verifycode: that.verifyCode,
+                webqq_type: that.define.webqq_type,
+                remember_uin: 1,
+                login2qq: 1,
+                aid: that.define.appid,
+                u1: "http://web2.qq.com/loginproxy.html?login2qq=1&webqq_type=10",
+                h: 1,
+                ptredirect: 0,
+                ptlang: that.define.ptlang,
+                daid: that.define.daid,
+                from_ui: 1,
+                pttype: 1,
+                dumy: '',
+                fp: "loginerroralert",
+                action: that.define.action,
+                mibao_css: "m_webqq",
+                t: 1,
+                g: 1,
+                jstype: that.define.jstype,
+                js_ver: that.define.js_ver,
+                login_sig: ''
             },
             type: 'get',
             dataType: 'text',
@@ -158,5 +189,49 @@ var WebQQ = {
         return string.substring(string.indexOf('(') + 1, string.lastIndexOf(')')).split(/,\s*/).map(function(s){
             return !isNaN(s) ? +s : s.substring(1, s.length - 1);
         });
-    }
+    },
+    
+    _getEncodedPassword: function(password){
+    	var encodedPassword = null;
+		if(password.substr(0, 1) != String.fromCharCode(16)){
+			password = password.substr(0,16);
+			this.password = md5(password);
+			encodedPassword = md5(md5(this.hexChar2Bin(this.password)+this.uin)+this.verifyCode.toUpperCase());
+			if(localStorage.password){
+				localStorage.password = String.fromCharCode(16) + this.md5(this.hexChar2Bin(this.password)+this.uin);
+			}
+		}
+		else{
+			encodedPassword = md5(password.substr(1)+this.verifyCode.toUpperCase());
+		}
+		
+		return encodedPassword;
+	},
+	
+	hexChar2Bin: function(str) {
+		var arr = "", temp = "";
+		for (var i = 0; i < str.length; i = i + 2) {
+			temp = str.substr(i, 2);
+			temp = parseInt(temp, 16);
+			arr += String.fromCharCode(temp);
+		}
+		return arr;
+	},
+	
+	uin2Hex: function(uin) {
+		var maxLength = 16;
+		uin = parseInt(uin);
+		var hex = uin.toString(16);
+		var len = hex.length;
+		for (var i = len; i < maxLength; i++) {
+			hex = "0" + hex;
+		}
+		var arr = "", temp = "";
+		for (var j = 0; j < maxLength; j += 2) {
+			temp = hex.substr(j, 2);
+			temp = parseInt(temp, 16);
+			arr += String.fromCharCode(temp);
+		}
+		return arr;
+	},
 };
