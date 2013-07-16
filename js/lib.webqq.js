@@ -83,9 +83,6 @@ var WebQQ = {
         this.account = account;
         
         var that = this;
-        chrome.cookies.get({name: 'verifysession', url: 'https://*.qq.com'}, function(cookie){
-            that.verifysession = cookie.value;
-        });    
         $.ajax({
             url: that.URI_GETVC_SSL,
             data: {
@@ -103,7 +100,7 @@ var WebQQ = {
                 var response = that._getArgsArray(text);
                 if(response[0] == "0") {
                     that.veridyCode = response[2];
-                    this.login(this.gPassword, this.gStatus);
+                    that.doLogin(that.gPassword, that.gStatus);
                 }
                 else if(response[0] == "1") {
                     that.showVerifyCode(response[2]);
