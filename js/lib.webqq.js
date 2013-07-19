@@ -175,9 +175,21 @@ var WebQQ = {
     
     /**
      * 记录登录日志
+     * @todo 使用chrome.storage替代localStorage 可直接存取对象
      */
     _logLogin: function() {
-        
+		var loginHistory = localStorage.loginHistory;
+		if (typeof(loginHistory) == 'undefined') {
+		    var arrLoginHistory = [];
+		}
+		else {
+		    var arrLoginHistory = JSON.parse(loginHistory);
+		}
+		if(arrLoginHistory.indexOf(WebQQ.account) != -1) {
+			arrLoginHistory.splice(arrLoginHistory.indexOf(WebQQ.account), 1);
+		}
+		arrLoginHistory.push(WebQQ.account);
+		localStorage.setItem('loginHistory', JSON.stringify(arrLoginHistory));
     },
     
     /**
