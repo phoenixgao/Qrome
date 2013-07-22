@@ -709,6 +709,9 @@ function notiListSplice(msgId){
 }
 
 function decodeMsg(msg){
+	var countCharacter = -1;
+	var countFace = 0;
+	var countPic = 0;
 	if(typeof(msg) == 'string'){
 		msg = JSON.parse(msg);
 	}
@@ -716,15 +719,18 @@ function decodeMsg(msg){
 	for(var i = 0; i < msg.length; i++){
 		if(typeof(msg[i]) == 'string'){
 			message += msg[i].replace(/\n/g, ' ').replace(/\r/g, ' ');
+			countCharacter += msg[i].replace(/\n/g, ' ').replace(/\r/g, ' ').length;
 		}
 		else if(typeof(msg[i]) == 'object'){
 			switch(msg[i][0]){
 				case 'face':{
-					message += ' [图] ';
+					message += ' [表情] ';
+					countFace += 1;
 					break;
 				}
 				case 'offpic':{
-					message += ' [图] ';
+					message += ' [图片] ';
+					countPic += 1;
 					break;
 				}
 			}
@@ -733,7 +739,24 @@ function decodeMsg(msg){
 	if(message.length > 50){
 		message = message.substr(0, 50)+'...';
 	}
-	return message;
+	if(localStorage.notifyfull) {
+		return message;
+	}
+	else {
+		var brief = '[新消息]';
+		brief += '(含';
+		if(countFace > 0) {
+			brief += countFace+'个表情';
+		}
+		if(countPic > 0) {
+			brief += countPic+'张表情';
+		}
+		if(countCharacter > 0) {
+			brief += countCharacter+'个字';
+		}
+		brief += ')';
+		return brief;
+	}
 }
 
 function pushNewMsg(uin, type){

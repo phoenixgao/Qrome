@@ -268,24 +268,24 @@ var HTML5QQ = {
 		  this.outputDebug("login: password(******)");
 		}
 		this.encodePassord(password);
-		this.createJs("https://ssl.ptlogin2.qq.com/login?u="+this.qq+"&p="+this.encodedPassword+"&verifycode="+this.verifyCode.toUpperCase()+"&webqq_type=40&remember_uin=1&login2qq=1&aid=1003903&u1=http%3A%2F%2Fweb.qq.com%2Floginproxy.html%3Flogin2qq%3D1%26webqq_type%3D40&h=1&ptredirect=0&ptlang=2052&from_ui=1&pttype=1&dumy=&fp=loginerroralert&action=4-3-2475914&mibao_css=m_webqq&t=1&g=1", function(code){
+		this.createJs("https://ssl.ptlogin2.qq.com/login?u="+this.qq+"&p="+this.encodedPassword+"&verifycode="+this.verifyCode.toUpperCase()+"&webqq_type=10&remember_uin=1&login2qq=1&aid=1003903&u1=http%3A%2F%2Fweb2.qq.com%2Floginproxy.html%3Flogin2qq%3D1%26webqq_type%3D10&h=1&ptredirect=0&ptlang=2052&from_ui=1&pttype=1&dumy=&fp=loginerroralert&action=5-27-43286&mibao_css=m_webqq&t=1&g=1&jstype=0&js_ver=10034", function(code){
 			if(HTML5QQ.debug){
 		 		HTML5QQ.outputDebug("login: code("+code+")");
 			}
 			if(code.indexOf("登录成功") != -1){
-				HTML5QQ.getCookie("http://qq.com", "skey", function(cookie){
+				HTML5QQ.getCookie("https://qq.com", "skey", function(cookie){
 					HTML5QQ.skey = cookie.value;
 					if(HTML5QQ.debug){
 		 				HTML5QQ.outputDebug("login: skey("+HTML5QQ.skey+")");
 					}
 				});
-				HTML5QQ.getCookie("http://qq.com", "ptwebqq", function(cookie){
+				HTML5QQ.getCookie("https://qq.com", "ptwebqq", function(cookie){
 					HTML5QQ.getPsessionid(cookie.value, status);
 					if(HTML5QQ.debug){
 		 				HTML5QQ.outputDebug("login: ptwebqq("+HTML5QQ.ptwebqq+")");
 					}
 				});
-				HTML5QQ.getCookie("http://qq.com", "uin", function(cookie){
+				HTML5QQ.getCookie("https://qq.com", "uin", function(cookie){
 					HTML5QQ.qq = parseInt(cookie.value.substr(1));
 					if(HTML5QQ.debug){
 		 				HTML5QQ.outputDebug("login: uin("+cookie.value+")");
@@ -318,15 +318,18 @@ var HTML5QQ = {
 		if(HTML5QQ.debug){
 		 	HTML5QQ.outputDebug("getPsessionid: r("+r+")");
 		}
-		this.httpRequest('POST', 'https://d.web2.qq.com/channel/login2', 'r='+r+'&clientid='+this.clientid+'&psessionid=null', true, function(result){
+		this.httpRequest('POST', 'http://d.web2.qq.com/channel/login2', 'r='+r+'&clientid='+this.clientid+'&psessionid=null', true, function(result){
 			if(HTML5QQ.debug){
 		 		HTML5QQ.outputDebug("getPsessionid: result("+result+")");
 			}
 			result = JSON.parse(result);
-			result = result.result;
-			HTML5QQ.vfwebqq = result.vfwebqq;
-			HTML5QQ.psessionid = result.psessionid;
-			HTML5QQ.status = result.status;
+			if(typeof(result.result) != "undefined") {
+				result = result.result;
+				HTML5QQ.vfwebqq = result.vfwebqq;
+				HTML5QQ.psessionid = result.psessionid;
+				HTML5QQ.status = result.status;
+			}
+			
 			if(HTML5QQ.debug){
 				HTML5QQ.outputDebug("vfwebqq("+HTML5QQ.vfwebqq+") psessionid("+HTML5QQ.psessionid+")");
 			}
@@ -389,26 +392,19 @@ var HTML5QQ = {
 	hash: function(uin, ptwebqq) {
 		var b = uin;
 		var i = ptwebqq;
-		for (var a = i + "password error",
-			s = "",
-			j = [];;) {
-			if (s.length <= a.length) {
-				if (s += b, s.length == a.length) 
-					break;
-			} else {
-				s = s.slice(0, a.length);
-				break;
-			}
-		}
-		for (var d = 0; d < s.length; d++) 
-			j[d] = s.charCodeAt(d) ^ a.charCodeAt(d);
-		a = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "A", "B", "C", "D", "E", "F"];
-		s = "";
-		for (d = 0; d < j.length; d++) {
-			s += a[j[d] >> 4 & 15];
-			s += a[j[d] & 15];
-		}
-		return s;
+		for (var a = [], s = 0; s < i.length; s++) a[s % 4] ^= i.charCodeAt(s);
+        var j = ["EC", "OK"],
+            d = [];
+        d[0] = b >> 24 & 255 ^ j[0].charCodeAt(0);
+        d[1] = b >> 16 & 255 ^ j[0].charCodeAt(1);
+        d[2] = b >> 8 & 255 ^ j[1].charCodeAt(0);
+        d[3] = b & 255 ^ j[1].charCodeAt(1);
+        j = [];
+        for (s = 0; s < 8; s++) j[s] = s % 2 == 0 ? a[s >> 1] : d[s >> 1];
+        a = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "A", "B", "C", "D", "E", "F"];
+        d = "";
+        for (s = 0; s < j.length; s++) d += a[j[s] >> 4 & 15], d += a[j[s] & 15];
+        return d;
 	},
 
 	getFriendsInfo: function(){
