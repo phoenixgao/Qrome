@@ -392,6 +392,12 @@ var HTML5QQ = {
 	hash: function(uin, ptwebqq) {
 		var i = uin;
 		var a = ptwebqq;
+		
+		var b = function (b, i) {
+            this.s = b || 0;
+            this.e = i || 0
+        };
+        
 		var r = [];
         r[0] = i >> 24 & 255;
         r[1] = i >> 16 & 255;
