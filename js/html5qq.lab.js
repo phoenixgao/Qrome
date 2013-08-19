@@ -390,33 +390,42 @@ var HTML5QQ = {
 	},
 	
 	hash: function(uin, ptwebqq) {
-		var b = uin;
-		var i = ptwebqq;
-		for (var a = [], s = 0; s < b.length; s++)
-	        a[s] = b.charAt(s) - 0;
-	    for (var j = 0, d = -1, s = 0; s < a.length; s++) {
-	        j += a[s];
-	        j %= i.length;
-	        var c = 0;
-	        if (j + 4 > i.length)
-	            for (var l = 4 + j - i.length, x = 0; x < 4; x++)
-	                c |= x < l ? (i.charCodeAt(j + x) & 255) << (3 - x) * 8 : (i.charCodeAt(x - l) & 255) << (3 - x) * 8;
-	        else
-	            for (x = 0; x < 4; x++)
-	                c |= (i.charCodeAt(j + x) & 255) << (3 - x) * 8;
-	        d ^= c
-	    }
-	    a = [];
-	    a[0] = d >> 24 & 255;
-	    a[1] = d >> 16 & 255;
-	    a[2] = d >> 8 & 255;
-	    a[3] = d & 255;
-	    d = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "A", "B", "C", "D", "E", "F"];
-	    s = "";
-	    for (j = 0; j < a.length; j++)
-	        s += d[a[j] >> 4 & 15],
-	    s += d[a[j] & 15];
-	    return s
+		var i = uin;
+		var a = ptwebqq;
+		var r = [];
+        r[0] = i >> 24 & 255;
+        r[1] = i >> 16 & 255;
+        r[2] = i >> 8 & 255;
+        r[3] = i & 255;
+        for (var j = [], e = 0; e < a.length; ++e) j.push(a.charCodeAt(e));
+        e = [];
+        for (e.push(new b(0, j.length - 1)); e.length > 0;) {
+            var c = e.pop();
+            if (!(c.s >= c.e || c.s < 0 || c.e >= j.length))
+                if (c.s + 1 == c.e) {
+                    if (j[c.s] > j[c.e]) {
+                        var l = j[c.s];
+                        j[c.s] = j[c.e];
+                        j[c.e] = l
+                    }
+                } else {
+                    for (var l = c.s, J = c.e, f = j[c.s]; c.s < c.e;) {
+                        for (; c.s < c.e && j[c.e] >= f;) c.e--, r[0] = r[0] + 3 & 255;
+                        c.s < c.e && (j[c.s] = j[c.e], c.s++, r[1] = r[1] * 13 + 43 & 255);
+                        for (; c.s < c.e && j[c.s] <= f;) c.s++, r[2] = r[2] - 3 & 255;
+                        c.s < c.e && (j[c.e] = j[c.s], c.e--, r[3] = (r[0] ^ r[1] ^ r[2] ^ r[3] + 1) & 255)
+                    }
+                    j[c.s] = f;
+                    e.push(new b(l, c.s - 1));
+                    e.push(new b(c.s + 1, J))
+                }
+        }
+        j = ["0", "1", "2", "3", "4",
+            "5", "6", "7", "8", "9", "A", "B", "C", "D", "E", "F"
+        ];
+        e = "";
+        for (c = 0; c < r.length; c++) e += j[r[c] >> 4 & 15], e += j[r[c] & 15];
+        return e
 	},
 
 	getFriendsInfo: function(){
